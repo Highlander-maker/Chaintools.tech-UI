@@ -1,12 +1,11 @@
 import { ReactNode } from 'react'
 import { useSigningClient } from 'contexts/cosmwasm'
 import Loader from './Loader'
+import Link from 'next/link'
 
 function WalletLoader({
-  children,
   loading = false,
 }: {
-  children: ReactNode
   loading?: boolean
 }) {
   const {
@@ -23,14 +22,23 @@ function WalletLoader({
       </div>
     )
   }
-
+  if (walletAddress !== '') {
+    return (
+      <div className="max-w-full">
+        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 max-w-full sm:w-full">
+          <Link href="https://explorer.chaintools.tech/" passHref>
+            <a className="p-6 mt-6 text-left border border-secondary hover:border-primary w-96 rounded-xl hover:text-primary focus:text-primary-focus">
+              <h3 className="text-2xl font-bold">Select Network &rarr;</h3>
+              <p className="mt-4 text-xl">Choose a network and stake your tokens to earn APR yield.</p>
+            </a>
+          </Link>
+        </div>
+      </div>
+    )
+  }
   if (walletAddress === '') {
     return (
       <div className="max-w-full">
-        <h1 className="text-6xl font-bold">
-          Welcome to Chaintools.tech
-
-        </h1>
 
         {/* <p className="mt-3 text-2xl">
           Get started by installing{' '}
