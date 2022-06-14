@@ -37,7 +37,7 @@ function Nav() {
             </a>
           </Link>
           <Link href="/">
-            <a className="ml-1 md:ml-2 link link-hover font-semibold text-xl md:text-2xl align-top">
+            <a className=" ml-1 md:ml-2 link link-hover font-semibold text-xl md:text-2xl align-top">
               {process.env.NEXT_PUBLIC_SITE_TITLE}
             </a>
           </Link>
